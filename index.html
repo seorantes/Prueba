@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Accesorios Motopartes Revolutión Orantes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <style>
+  </style>
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<div id="videoMusica" style="display:none;">
+  <iframe
+    id="iframeMusica"
+    width="0"
+    height="0"
+    src=""
+    frameborder="0"
+    allow="autoplay"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<button id="playMusicBtn" style="margin: 20px; padding: 10px; font-size: 16px;">Reproducir Música</button>
+
+
+
+<header>
+  <h1>Motopartes Revolutión Orantes</h1>
+  <p>Equipando tu pasión por las dos ruedas</p>
+</header>
+
+<div class="scroll-text" aria-label="Información del usuario">
+  <span>Nombre: Sebastian Salazar Orantes | Carnet: 0900-25-993</span>
+</div>
+
+<nav>
+  <a href="#quienes">Quiénes somos</a>
+  <a href="#mision">Misión y Visión</a>
+  <a href="#productos">Productos</a>
+  <a href="#proveedores">Proveedores</a>
+  <a href="#clientes">Clientes</a>
+  <a href="#contacto">Contáctenos</a>
+</nav>
+
+<section id="quienes">
+  <h2>¿Quiénes somos?</h2>
+  <p>En <strong>Accesorios Motopartes Revolutión Orantes</strong>, somos más que una tienda...</p>
+  <img src="" alt="Foto del alumno">
+</section>
+
+<section id="mision">
+  <h2>Misión</h2>
+  <p>En Motopartes Revolutión Orantes, nuestra misión es proporcionar a los motociclistas...</p>
+  <h2>Visión</h2>
+  <p>Ser la empresa líder en el mercado nacional e internacional de accesorios para motocicletas...</p>
+</section>
+
+<section id="productos">
+  <h2>Productos</h2>
+  <h3><strong>🔧 Accesorios de protección:</strong></h3>
+  <p><strong>Casco de animado</strong> - Q550</p>
+  <img src="" width="200" height="150">
+  <!-- Más productos aquí -->
+</section>
+
+<section id="proveedores">
+  <h2>Proveedores</h2>
+  <p><strong>Motoplace</strong></p>
+  <img src="" width="200" height="150">
+  <!-- Más proveedores aquí -->
+</section>
+
+<section id="clientes">
+  <h2>🏍️ Nuestros Clientes 🏍️</h2>
+  <div style="display: grid;">
+    <div>
+      <img src="" alt="Mario Gómez">
+      <h4>Mario Gómez</h4>
+      <p>Siempre busca lo mejor para su moto.</p>
+    </div>
+    <!-- Más clientes aquí -->
+  </div>
+</section>
+
+<section id="contacto">
+  <h2>Contáctenos</h2>
+  <p><strong>Dirección:</strong> 7a Avenida, Zona 1, Ciudad Capital</p>
+  <p><strong>Teléfono:</strong> +502 1234 5678</p>
+  <p><strong>Email:</strong> <a href="mailto:contacto@motomax.com">contacto@motomax.com</a></p>
+  <p><strong>Redes sociales:</strong> 
+    <a href="#" style="color:#1a73e8; text-decoration:none;">Facebook</a> | 
+    <a href="#" style="color:#e4405f; text-decoration:none;">Instagram</a>
+  </p>
+  
+  <h3 style="margin-top: 30px; color: #575757;">Ubicación</h3>
+  <div style="width: 100%; height: 300px; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 6px rgba(0,0,0,0.15);">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3853.1234567890123!2d-90.5144456841234!3d14.634915192123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a34e2e8f6c3b%3A0x90d8b9b88a2c3c87!2s7a%20Avenida%2C%20Zona%201%2C%20Ciudad%20Capital!5e0!3m2!1ses!2sgt!4v1680000000000!5m2!1ses!2sgt"
+      width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+<footer>
+  <p>“Conoceréis la verdad y la verdad os hará libres” - UMG</p>
+  <p id="hora"></p>
+</footer>
+
+<button id="scrollTopBtn" title="Volver arriba">↑</button>
+
+<script src="java.js"></script>
+<script>
+// Botón scroll
+const scrollBtn = document.getElementById("scrollTopBtn");
+window.onscroll = () => {
+  scrollBtn.style.display = (document.documentElement.scrollTop > 200) ? "block" : "none";
+};
+scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+// Hora en footer
+function mostrarHora() {
+  const ahora = new Date();
+  const hora = ahora.toLocaleTimeString();
+  document.getElementById("hora").innerText = `Hora actual: ${hora}`;
+}
+mostrarHora();
+setInterval(mostrarHora, 60000);
+
+// Reproducción automática de música
+const iframe = document.getElementById("iframeMusica");
+const playMusicBtn = document.getElementById("playMusicBtn");
+
+function iniciarMusica() {
+  iframe.src = "https://www.youtube.com/embed/mahecyiwnZs?autoplay=1&loop=1&playlist=mahecyiwnZs&mute=1"; // Mute activado
+  document.getElementById("videoMusica").style.display = "block"; // Mostrar el reproductor
+}
+
+// Función para reproducir música al hacer clic en el botón
+function reproducirMusica() {
+  iframe.src = "https://www.youtube.com/embed/mahecyiwnZs?autoplay=1&loop=1&playlist=mahecyiwnZs&mute=0"; // Desactivar mute
+  playMusicBtn.disabled = true; // Deshabilitar el botón después de hacer clic
+  playMusicBtn.innerText = "Música Reproduciéndose"; // Cambiar texto del botón
+}
+
+window.addEventListener("load", () => {
+  iniciarMusica(); // música comienza automáticamente al cargar la página
+});
+
+// Evento para el botón de reproducción
+playMusicBtn.addEventListener("click", reproducirMusica);
+
+
+</script>
+
+</body>
+</html>
